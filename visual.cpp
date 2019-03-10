@@ -1,10 +1,7 @@
-
-#include <termios.h> // usleep
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "visual.h"
 int arr[10][10];
-void draw(){
+int a = 0,b = 0;
+void test_draw(){
     for(int i = 0;i<10;i++){
         for(int j = 0;j<10;j++){
             printf("%d",arr[i][j]);
@@ -12,19 +9,22 @@ void draw(){
         printf("\n");
     }
 }
-void update(int i,int j){
+void test_update(int i,int j){
     arr[i][j]++;
 }
-int main(){
-    int a = 0,b = 0;
+int visual(){
+    init_keyboard();
     while(1){
-        if(kbhit()){
-            char kc = getchar();
+        if(_kbhit()){
+            char kc = _getch();
+            _putch(kc);
             if(kc == 'q') break;
         }
         system("clear");
-        draw();
-        update((a++)%10,(b++)%10);
+        test_draw();
+        test_update((a++)%10,(b++)%10);
         usleep(100); // 1ms = 1sec
     }
+    close_keyboard();
 }
+
