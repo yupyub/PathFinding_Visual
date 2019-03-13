@@ -10,7 +10,7 @@ void test_draw(){
     }
 }
 void test_update(int i,int j){
-    arr[i][j]++;
+    arr[i][j] = (arr[i][j]+1)%10;
 }
 int visual(){
     init_keyboard();
@@ -23,7 +23,7 @@ int visual(){
         system("clear");
         test_draw();
         test_update((a++)%10,(b++)%10);
-        usleep(100); // 1ms = 1sec
+        usleep(200000); // 1000000microsecond = 1second
     }
     close_keyboard();
 }
