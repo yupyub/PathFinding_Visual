@@ -24,7 +24,13 @@ int read_map(){
         printf("Map Open Error\n");
         return -1;
     }
-   /////////////////// 
+    fscanf(fp,"%d %d",&N,&M);
+    for(int i = 0;i<N;i++){
+        for(int j = 0;j<M;j++){
+            fscanf(fp,"%1d",&map[i][j]);
+        }
+    }
+    fclose(fp);
 }
 void draw(){
     system("clear");
