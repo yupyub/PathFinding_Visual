@@ -1,6 +1,4 @@
 #include "visual.h"
-int arr[10][10];
-int a = 0,b = 0;
 int visual(){
     init_keyboard();
     while(1){
@@ -19,8 +17,8 @@ int visual(){
 
 int read_map(){
     FILE *fp;
-    fopen(&fp,"map.txt","r");
-    if(fp == null){
+    fp = fopen("map.txt","r");
+    if(fp == NULL){
         printf("Map Open Error\n");
         return -1;
     }
