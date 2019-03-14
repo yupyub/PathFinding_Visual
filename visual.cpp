@@ -1,5 +1,5 @@
 #include "visual.h"
-int visual(){
+int Visual::visual(){
     init_keyboard();
     while(1){
         if(_kbhit()){
@@ -15,9 +15,9 @@ int visual(){
     close_keyboard();
 }
 
-int read_map(){
+int Visual::read_map(){
     FILE *fp;
-    fp = fopen("map.txt","r");
+    fp = fopen("map2.txt","r");
     if(fp == NULL){
         printf("Map Open Error\n");
         return -1;
@@ -30,12 +30,21 @@ int read_map(){
     }
     fclose(fp);
 }
-void draw(){
+void Visual::draw(){
     system("clear");
+    for(int i = 0;i<M+2;i++) printf("#");
+    printf("\n");
     for(int i = 0;i<N;i++){
+        printf("#");
         for(int j = 0;j<M;j++){
-            printf("%d",state[i][j]); //upgrade later
+            if(map[i][j] == 1) printf("#");
+            else if(map[i][j] == 2) printf("S");
+            else if(map[i][j] == 3) printf("E");
+            else if(state[i][j] == 2)printf("*");
+            else if(state[i][j] == 0)printf(" ");
         }
-        printf("\n");
+        printf("#\n");
     }
+    for(int i = 0;i<M+2;i++) printf("#");
+    printf("\n");
 }
