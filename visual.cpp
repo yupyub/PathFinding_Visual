@@ -15,9 +15,12 @@ int Visual::visual(){
     close_keyboard();
 }
 
-int Visual::read_map(){
+int Visual::read_map(int mnum){
     FILE *fp;
-    fp = fopen("map2.txt","r");
+    std::string name = "map";
+    name += std::to_string(mnum);
+    name += ".txt";
+    fp = fopen(name.c_str(),"r");
     if(fp == NULL){
         printf("Map Open Error\n");
         return -1;
@@ -40,7 +43,8 @@ void Visual::draw(){
             if(map[i][j] == 1) printf("#");
             else if(map[i][j] == 2) printf("S");
             else if(map[i][j] == 3) printf("E");
-            else if(state[i][j] == 2)printf("*");
+            else if(state[i][j] == 3)printf("O");
+            else if(state[i][j] == 2)printf(".");
             else if(state[i][j] == 0)printf(" ");
         }
         printf("#\n");
