@@ -1,8 +1,7 @@
 #include "A_Star.h"
 int main(){
     A_Star A;
-
-int t,m,h,g;
+    int t,m,h,g;
     system("clear");
     printf("\nSet the ShowSpeed(Microsecond = 1/10^6second)\n");
     printf("<Recommand 10000 ~ 50000 / minimum = 10000>   : ");
