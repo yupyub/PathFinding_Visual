@@ -43,6 +43,7 @@ void Visual::draw(){
             if(map[i][j] == 1) printf("#");
             else if(map[i][j] == 2) printf("S");
             else if(map[i][j] == 3) printf("E");
+            else if(state[i][j] == 1)printf("O");
             else if(state[i][j] == 3)printf("O");
             else if(state[i][j] == 2)printf(".");
             else if(state[i][j] == 0)printf(" ");

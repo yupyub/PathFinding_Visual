@@ -1,5 +1,5 @@
-#ifndef __A_Star_F__
-#define __A_Star_F__
+#ifndef __Dijk_F__
+#define __Dijk_F__
 #include "visual.h"
 #include <cstdio>
 #include <algorithm>
@@ -11,7 +11,7 @@
 #define Max_N 200
 #define Max_M 200
 using namespace std;
-class A_Star{
+class Dijkstra{
     public:
         Visual vv;
         int dist[Max_N][Max_M];
@@ -20,10 +20,7 @@ class A_Star{
         int dx[4] = {0,1,0,-1};
         int dy[4] = {1,0,-1,0};
         Visual Init(int ts,int mnum);
-        int A_Star_Run(int tset,int mnum,int hnum,int hg);
-        int H_Func(int nx,int ny,int g,int h);
-        int H1(int nx,int ny,int g); // Manhattan_Distance * g
-        int H2(int nx,int ny,int g);
+        int Dijkstra_Run(int tset,int mnum);
         void sol_path(int x,int y);
 };
 #endif

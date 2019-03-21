@@ -1,5 +1,5 @@
-#include "A_Star.h"
-Visual A_Star::Init(int ts,int mnum){
+#include "Dijkstra.h"
+Visual Dijkstra::Init(int ts,int mnum){
     if(ts<10000) timeSet = 10000;
     timeSet = ts;
     Visual vv;
@@ -19,17 +19,7 @@ Visual A_Star::Init(int ts,int mnum){
     }
     return vv;
 }
-int A_Star::H_Func(int nx,int ny,int g,int h){
-    if(h == 1) return H1(nx,ny,g);
-    else if(h == 2) return H2(nx,ny,g);
-}
-int A_Star::H1(int nx,int ny,int g){ // Manhattan_Distance * g
-    return g*(abs(ex - nx) + abs(ey - ny));
-}
-int A_Star::H2(int nx,int ny,int g){ // Distance * g
-    return sqrt((ex-nx)*(ex-nx) + (ey-ny) * (ey-ny)) * g;
-}
-void A_Star::sol_path(int x,int y){
+void Dijkstra::sol_path(int x,int y){
     if(dist[x][y] == 0) return;
     vv.state[x][y] = 1;
     for(int i = 0;i<4;i++){
@@ -42,7 +32,7 @@ void A_Star::sol_path(int x,int y){
         }
     }
 }
-int A_Star::A_Star_Run(int tset, int mnum, int hnum,int hg){
+int Dijkstra::Dijkstra_Run(int tset, int mnum){
     int g;
     vv = Init(tset,mnum);
     priority_queue<tuple<int,int,int,int> >pq;
@@ -65,7 +55,7 @@ int A_Star::A_Star_Run(int tset, int mnum, int hnum,int hg){
             if(nx<0||ny<0||nx>=vv.N||ny>=vv.M) continue;
             if(vv.map[nx][ny] != 1 && dist[nx][ny] > dist[x][y] + 1 && vv.state[nx][ny] < 2){
                 dist[nx][ny] = dist[x][y] + 1;
-                pq.push(make_tuple(-(dist[nx][ny] + H_Func(nx,ny,hg,hnum)),nx,ny,(i+2)%4));
+                pq.push(make_tuple(-dist[nx][ny],nx,ny,(i+2)%4));
             }
         }
         vv.draw();
