@@ -3,6 +3,7 @@
 int main(){
     Dijkstra D;
     A_Star A;
+
     int a,t,m,h,g;
     system("clear");
     printf("Choose the Algorithm\n");
