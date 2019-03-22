@@ -1,8 +1,10 @@
 #include "A_Star.h"
 #include "Dijkstra.h"
+#include "DFS.h"
 int main(){
     Dijkstra D;
     A_Star A;
+    DFS F;
 
     int a,t,m,h,g;
     system("clear");
@@ -35,6 +37,7 @@ int main(){
             A.A_Star_Run(t,m,h,g);
             break;
         case 3:
+            F.DFS_Run(t,m);  
             break;
         case 4:
             break;
