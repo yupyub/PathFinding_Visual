@@ -15,7 +15,7 @@ int main(){
     printf("<Recommand 10000 ~ 50000 / minimum = 10000>   : ");
     scanf("%d",&t);
     system("clear");
-    printf("< Map Size >\n1. 10 x 20\n2. a x b\n3. 40 x 70\n");
+    printf("< Map Size >\n1. 10 x 20\n2. 20 x 50\n3. 40 x 70\n");
     printf("You can add your own map (ex) name : map4.txt)\n"); 
     printf("Choose the map number : ");
     scanf("%d",&m);
