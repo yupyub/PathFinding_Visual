@@ -1,17 +1,17 @@
 #include "DFS.h"
-Visual DFS::Init(int ts,int mnum){
+void DFS::Init(int ts,int mnum){
     if(ts<10000) timeSet = 10000;
     timeSet = ts;
     scnt = 0;
     itr = 0;
-    dx[0] = dx[2] = dy[1] = dy[4] = 0;
+    dx[0] = dx[2] = dy[1] = dy[3] = 0;
     dx[1] = dy[0] = 1;
     dx[3] = dy[2] = -1;
-    Visual vv;
     vv.read_map(mnum);
     for(int i = 0;i<vv.N;i++){
         for(int j = 0;j<vv.M;j++){
             dist[i][j] = INF;
+            vv.state[i][j] = 0;
             if(vv.map[i][j] == 2){
                 sx = i;
                 sy = j;
@@ -22,26 +22,24 @@ Visual DFS::Init(int ts,int mnum){
             }
         }
     }
-    return vv;
 }
 void DFS::sol_path(int x,int y){
     if(dist[x][y] == 0) return;
     vv.state[x][y] = 1;
+    vector<tuple<int,int,int> > v;
     for(int i = 0;i<4;i++){
         int nx = x+dx[i];
         int ny = y+dy[i];
         if(nx<0||ny<0||nx>=vv.N||ny>=vv.M) continue;
-        if(dist[nx][ny] == dist[x][y] -1){
-            sol_path(nx,ny);
-            return;
-        }
+        v.push_back(make_tuple(dist[nx][ny],nx,ny));
     }
+    sort(v.begin(),v.end());
+    sol_path(get<1>(v[0]),get<2>(v[0]));
 }
 int DFS::DFS_H(int x,int y,int dir){ // DFS + Heuristic
     vv.state[x][y] = 3;
     vv.draw();
     itr++;
-    printf("%d %d %d\n",x,y,dir);
     printf("Total Iteration : %d\n",itr);
     printf("DFS Stack Count : %d\n",scnt);
     usleep(timeSet);
@@ -67,7 +65,7 @@ int DFS::DFS_H(int x,int y,int dir){ // DFS + Heuristic
                 scnt++;
                 int ret = DFS_H(nx,ny,ni);
                 scnt--;
-                if(ret)return 1;
+                if(ret == 1)return 1;
             }
             else dist[nx][ny] = dist[x][y] + 1;
         }
@@ -75,7 +73,7 @@ int DFS::DFS_H(int x,int y,int dir){ // DFS + Heuristic
     return 0;
 }
 int DFS::DFS_Run(int tset, int mnum){
-    vv = Init(tset,mnum);
+    Init(tset,mnum);
     dist[sx][sy] = 0;
     if(DFS_H(sx,sy,-1)){
         sol_path(ex,ey);

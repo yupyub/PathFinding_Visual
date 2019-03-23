@@ -20,7 +20,7 @@ class DFS{
         int timeSet;
         int dx[4];
         int dy[4];
-        Visual Init(int ts,int mnum);
+        void Init(int ts,int mnum);
         int DFS_H(int x,int y,int dir); // DFS + Heuristic
         int DFS_Run(int tset,int mnum);
         void sol_path(int x,int y);

@@ -1,4 +1,5 @@
 #include "visual.h"
+/*
 int Visual::visual(){
     init_keyboard();
     while(1){
@@ -14,7 +15,7 @@ int Visual::visual(){
     }
     close_keyboard();
 }
-
+*/
 int Visual::read_map(int mnum){
     FILE *fp;
     std::string name = "map";

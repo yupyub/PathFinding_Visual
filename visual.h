@@ -9,7 +9,7 @@ class Visual{
         int map[Max_N][Max_M];
         int state[Max_N][Max_M];
         int N,M;
-        int visual();
+        //int visual();
         int read_map(int mnum);
         void draw();
 };

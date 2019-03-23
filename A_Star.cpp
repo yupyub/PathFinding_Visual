@@ -2,13 +2,14 @@
 Visual A_Star::Init(int ts,int mnum){
     if(ts<10000) timeSet = 10000;
     timeSet = ts;
-    dx[0] = dx[2] = dy[1] = dy[4] = 0;
+    dx[0] = dx[2] = dy[1] = dy[3] = 0;
     dx[1] = dy[0] = 1;
     dx[3] = dy[2] = -1;
     Visual vv;
     vv.read_map(mnum);
     for(int i = 0;i<vv.N;i++){
         for(int j = 0;j<vv.M;j++){
+            vv.state[i][j] = 0;
             dist[i][j] = INF;
             if(vv.map[i][j] == 2){
                 sx = i;
