@@ -17,8 +17,8 @@ class A_Star{
         int dist[Max_N][Max_M];
         int sx,sy,ex,ey;
         int timeSet = 0;
-        int dx[4] = {0,1,0,-1};
-        int dy[4] = {1,0,-1,0};
+        int dx[4];
+        int dy[4];
         Visual Init(int ts,int mnum);
         int A_Star_Run(int tset,int mnum,int hnum,int hg);
         int H_Func(int nx,int ny,int g,int h);

@@ -2,6 +2,11 @@
 Visual DFS::Init(int ts,int mnum){
     if(ts<10000) timeSet = 10000;
     timeSet = ts;
+    scnt = 0;
+    itr = 0;
+    dx[0] = dx[2] = dy[1] = dy[4] = 0;
+    dx[1] = dy[0] = 1;
+    dx[3] = dy[2] = -1;
     Visual vv;
     vv.read_map(mnum);
     for(int i = 0;i<vv.N;i++){
@@ -32,15 +37,16 @@ void DFS::sol_path(int x,int y){
         }
     }
 }
-void DFS::DFS_H(int x,int y,int dir){ // DFS + Heuristic
+int DFS::DFS_H(int x,int y,int dir){ // DFS + Heuristic
     vv.state[x][y] = 3;
     vv.draw();
     itr++;
+    printf("%d %d %d\n",x,y,dir);
     printf("Total Iteration : %d\n",itr);
-    printf("DFS Count : %d\n",t0);
+    printf("DFS Stack Count : %d\n",scnt);
     usleep(timeSet);
     vv.state[x][y] = 2;
-    if(x == ex && y == ey) return;
+    if(x == ex && y == ey) return 1;
     int si = 0;
     if(dir%2){
         if(ey>=y) si = 0;
@@ -56,22 +62,22 @@ void DFS::DFS_H(int x,int y,int dir){ // DFS + Heuristic
         int ny = y+dy[ni];
         if(nx<0||ny<0||nx>=vv.N||ny>=vv.M) continue;
         if(vv.map[nx][ny] != 1 && dist[nx][ny] > dist[x][y] + 1){
-            //if(dist[nx][ny] == INF){
+            if(dist[nx][ny] == INF){
                 dist[nx][ny] = dist[x][y] + 1;
-                t0++;
-                DFS_H(nx,ny,ni);
-                t0--;
-            //}
-            //else dist[nx][ny] = dist[x][y] + 1;
+                scnt++;
+                int ret = DFS_H(nx,ny,ni);
+                scnt--;
+                if(ret)return 1;
+            }
+            else dist[nx][ny] = dist[x][y] + 1;
         }
     }
+    return 0;
 }
 int DFS::DFS_Run(int tset, int mnum){
-    int g;
     vv = Init(tset,mnum);
     dist[sx][sy] = 0;
-    DFS_H(sx,sy,-1);    
-    if(dist[ex][ey] != INF){
+    if(DFS_H(sx,sy,-1)){
         sol_path(ex,ey);
         vv.draw();
         printf("Total Iteration : %d / Path Distance : %d\n",itr,dist[ex][ey]);
