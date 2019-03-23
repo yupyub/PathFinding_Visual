@@ -9,7 +9,7 @@ int main(){
     int a,t,m,h,g;
     system("clear");
     printf("Choose the Algorithm\n");
-    printf("1. Dijkstra\n2. A Star\n3. DFS\n4. RBFS\n");
+    printf("1. Dijkstra\n2. A Star\n3. DFS\n");
     printf("Write the number : ");
     scanf("%d",&a);
     system("clear");
@@ -38,8 +38,6 @@ int main(){
             break;
         case 3:
             F.DFS_Run(t,m);  
-            break;
-        case 4:
             break;
     }
 }
