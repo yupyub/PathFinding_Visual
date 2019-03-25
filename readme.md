@@ -36,12 +36,15 @@ There are two functions prepared.
 Select the heuristic function to use, then enter the weight of the heuristic function. We recommend a value between 1 and 3 at the beginning. (If the weight is zero, the function will work just like Dijkstra Algorithm.)
 <img>
 
- ## 4. DFS Algorithm
+ ## 4. Dijkstra Algorithm
+ '~~~~~~~~~
+
+ ## 5. DFS Algorithm
 This DFS algorithm is a simple addition of the Heuristic technique to DFS.
 For each search, first navigate in the direction closest to the target point.
 (Surprisingly, most of the time, this function's performance was the best.)
 
- ## 5. How to add a Map
+ ## 6. How to add a Map
 First, enter the MAP Directory. Then add the map according to how to name it.
 <img>
 
@@ -50,9 +53,9 @@ Formats : map(num).txt
 
 The rules for map00.txt are as follows:
 
-5-1. The first start line is given the map size.
+6-1. The first start line is given the map size.
 
-5-2. Meaning of each number : 
+6-2. Meaning of each number : 
 
 0 : Free space to pass, 1 : Walls that cannot passable, 2 : Starting point, 3 : Destination point
  
