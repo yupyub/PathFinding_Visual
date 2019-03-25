@@ -49,12 +49,11 @@ Formats : map(num).txt
 <img>
 
 The rules for map00.txt are as follows:
+
 5-1. The first start line is given the map size.
-5-2. Meaning of each number: 
 
-0 : Free space to pass
-1 : Walls that cannot passable
-2 : Starting point
-3 : Destination point
+5-2. Meaning of each number : 
 
+0 : Free space to pass, 1 : Walls that cannot passable, 2 : Starting point, 3 : Destination point
+ 
 If there are errors such as multiple start points, Destination points, or incorrect map size, the program may not function normally.
