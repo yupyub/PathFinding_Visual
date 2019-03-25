@@ -34,6 +34,8 @@ There are two functions prepared.
 <img>
 
 Select the heuristic function to use, then enter the weight of the heuristic function. We recommend a value between 1 and 3 at the beginning. (If the weight is zero, the function will work just like Dijkstra Algorithm.)
+
+The A_Star algorithm may not find the optimal path. Instead, the A_Star algorithm finds the appropriate path in a faster time.
 <img>
 
  ## 4. Dijkstra Algorithm
