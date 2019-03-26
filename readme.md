@@ -13,6 +13,23 @@ The execution screen is shown below.
 ![finding_route](./img/finding_route.PNG)
  
  ## 2. How to Run 
+2-0. Setting and MakeFile
+The Linux environment and the C++ compiler are required to run this program. (If you are not in a Linux environment, you will need to change the corresponding function by referring to linuxfunc.cpp. Sorry....) If the GNU C++ compiler is not installed in the linux environment, please run the code below.
+
+    sudo apt-get install g++
+    
+Once the installation is complete, you will now enter the make keyword and the a.out file will be created. 
+
+![do_make](./img/do_make.PNG)
+
+In the process of creating a.out file, there will have been unnecessary files such as visual.o. Please enter the code below if you want to sort this out.
+
+    make clean
+
+At last, write down the code below and run the program.
+
+    ./a.out
+    
 2-1. Select the algorithm number to run first.
 
 ![choose_algo](./img/choose_algo.PNG)
