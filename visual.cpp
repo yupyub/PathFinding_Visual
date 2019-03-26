@@ -18,7 +18,7 @@ int Visual::visual(){
 */
 int Visual::read_map(int mnum){
     FILE *fp;
-    std::string name = "map";
+    std::string name = "MAP/map";
     name += std::to_string(mnum);
     name += ".txt";
     fp = fopen(name.c_str(),"r");
