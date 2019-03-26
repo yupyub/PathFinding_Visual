@@ -45,14 +45,14 @@ The A_Star algorithm may not find the optimal path. Instead, the A_Star algorith
 ![A_Star_algo](./img/A_Star_algo.PNG)
 
  ## 4. Dijkstra Algorithm
- '~~~~~~~~~
+The Dijkstra Algorithm searches for the shortest possible path. When the function ends, it outputs the shortest path distance.
  
 ![Dijk_algo](./img/Dijk_algo.PNG)
 
  ## 5. DFS Algorithm
 This DFS algorithm is a simple addition of the Heuristic technique to DFS.
 For each search, first navigate in the direction closest to the target point.
-(Surprisingly, most of the time, this function's performance was the best.)
+(Surprisingly, in most cases, this function was the fastest.)
 
 ![DFS_algo](./img/DFS_algo.PNG)
 
