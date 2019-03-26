@@ -15,7 +15,7 @@ linuxfunc.o: linuxfunc.h linuxfunc.cpp
 
 clean:
 	rm -f *.o
-	rm -f $(TARGET)
+#	rm -f $(TARGET)
 
 #$(TARGET): $(OBJS)
 #$(CC) -o $@ $(OBJS)
