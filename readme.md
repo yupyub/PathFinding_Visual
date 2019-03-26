@@ -9,17 +9,21 @@ Each algorithm is:
 3. DFS (+ Huristic)
 
 The execution screen is shown below.
-<img>
+
+![finding_route](./img/finding_route.PNG)
  
  ## 2. How to Run 
 2-1. Select the algorithm number to run first.
-<img>
+
+![choose_algo](./img/choose_algo.PNG)
 
 2-2. And determine the rate at which the execution screen of the algorithm will be displayed. The number entered at this time is in microseconds It is recommended that you enter 50000 on the first run.
-<img>
+
+![set_time](./img/set_time.PNG)
 
 2-3. Select the map to run the algorithm. There are three types of prepared maps, and you can add them in the future.
-<img>
+
+![choose_map](./img/choose_map.PNG)
 
  ## 3. Execute A_Star Algorithm
 If you run algorithm number 2, you must select the Huristic function of the A_Star algorithm to use.
@@ -31,27 +35,35 @@ Evaluation function of the A_Star function:
 There are two functions prepared.
 1. Manhattan_Distance
 2. Real Distance
-<img>
+
+![choose_heuristic](./img/choose_heuristic.PNG)
 
 Select the heuristic function to use, then enter the weight of the heuristic function. We recommend a value between 1 and 3 at the beginning. (If the weight is zero, the function will work just like Dijkstra Algorithm.)
 
 The A_Star algorithm may not find the optimal path. Instead, the A_Star algorithm finds the appropriate path in a faster time.
-<img>
+
+![A_Star_algo](./img/A_Star_algo.PNG)
 
  ## 4. Dijkstra Algorithm
  '~~~~~~~~~
+ 
+![Dijk_algo](./img/Dijk_algo.PNG)
 
  ## 5. DFS Algorithm
 This DFS algorithm is a simple addition of the Heuristic technique to DFS.
 For each search, first navigate in the direction closest to the target point.
 (Surprisingly, most of the time, this function's performance was the best.)
 
+![DFS_algo](./img/DFS_algo.PNG)
+
  ## 6. How to add a Map
 First, enter the MAP Directory. Then add the map according to how to name it.
-<img>
+
+![MAP_dir](./img/MAP_dir.PNG)
 
 Formats : map(num).txt
-<img>
+
+![map_sample](./img/map_sample.PNG)
 
 The rules for map00.txt are as follows:
 
